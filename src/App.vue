@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+      <div :class="{active}" @click="change" id='box'>
+      </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  
+  data(){
+    return {
+      active:0,
+    }
+  },
+  mounted(){
+  },
+  methods:{
+    change(){
+      var div = document.querySelector('#box')
+      if(this.active == 0){
+        div.style.backgroundColor = 'blue'
+        this.active++
+      }else if(this.active == 1){
+        div.style.backgroundColor = 'green'
+        this.active++
+      }else if(this.active == 2){
+        div.style.backgroundColor = 'pink'
+        this.active++
+      }else if(this.active == 3){
+        div.style.backgroundColor = 'red'
+        this.active = 0
+      }
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#box{
+  width: 200px;
+  height: 200px;
+  background: red;
 }
 </style>
